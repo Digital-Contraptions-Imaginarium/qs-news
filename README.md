@@ -6,10 +6,10 @@ This repository includes a series of scripts that modify Newsbeuter's internal S
 Whenever any of the following changes takes place:
 
 - an article goes from unread to read,
-- an article goes from logically 'undeleted' to deleted (physical deletion is ignored), or
+- an article goes from logically 'undeleted' to deleted, or
 - any flags are added / changed
 
-the new record is written to _rss_read_, together with a timestamp in the _item_last_modified_ column.
+the new record is copied to _rss_read_, together with a timestamp in the _item_last_modified_ column. Physical deletion of records from _rss_item_ does not affect _rss_read_.
 
 Using scripts such as _extract.sql_, all _rss_read_ records generated during the current day are printed to standard output in CSV format (note that _extract.sql_ is written to output all activity of the date that was 1 hour before the script is called, this may not necessarily be what you need).
 
