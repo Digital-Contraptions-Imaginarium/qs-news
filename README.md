@@ -15,7 +15,7 @@ Using scripts such as _extract.sql_, all _rss_read_ records generated during the
 
 You can then archive the activity to log files, e.g. the following crontab line updates every hour the current day activity's file.
 
-    5 * * * * cat /home/username/extract.sql | sqlite3 /home/username/.local/share/newsbeuter/cache.db > /home/username/activity-`date +%Y%m%d -d "1 hour ago"`.csv
+    5 * * * * cat $HOME/extract.sql | sqlite3 $HOME/.local/share/newsbeuter/cache.db > $HOME/newsbeuter-history-`date +%Y%m%d -d "1 hour ago"`.csv
 
 To "install" the features, Newsbeuter's database need being changed by using the _database-setup.sql_ script. On Fedora, for example, this is done by running:
 
