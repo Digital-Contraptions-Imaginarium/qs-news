@@ -13,6 +13,10 @@ the new record is copied to _rss_read_, together with a timestamp in the _item_l
 
 Using scripts such as _extract.sql_, all _rss_read_ records generated during the current day are printed to standard output in CSV format (note that _extract.sql_ is written to output all activity of the date that was 1 hour before the script is called, this may not necessarily be what you need).
 
+You can then archive the activity to log files, e.g. the following crontab line updates every hour the current day activity's file.
+
+    5 * * * * cat /home/username/extract.sql | sqlite3 /home/username/.local/share/newsbeuter/cache.db > /home/username/activity-`date +%Y%m%d -d "1 hour ago"`.csv
+
 To "install" the features, Newsbeuter's database need being changed by using the _database-setup.sql_ script. On Fedora, for example, this is done by running:
 
     cp ~/.local/share/newsbeuter/cache.db ./cache.db.ORIGINAL
