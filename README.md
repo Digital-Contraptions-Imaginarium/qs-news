@@ -5,6 +5,7 @@ This repository includes a series of scripts that modify Newsbeuter's internal S
 
 Whenever any of the following changes takes place:
 
+- an article is downloaded from the source feed
 - an article goes from unread to read,
 - an article goes from logically 'undeleted' to deleted, or
 - any flags are added / changed
