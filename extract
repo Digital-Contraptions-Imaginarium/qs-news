@@ -1,0 +1,1 @@
+cat $HOME/Documents/Dico.im/GitHub-projects/qs-news/extract.sql | sqlite3 $HOME/.local/share/newsbeuter/cache.db > $HOME/Documents/Dico.im/Google-Drive/Projects/Quantified-Self/raw/newsbeuter/`date +%Y%m%d -d "1 hour ago"`.csv
