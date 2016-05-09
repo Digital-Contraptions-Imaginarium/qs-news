@@ -1,1 +1,1 @@
-echo "delete from rss_read where item_last_modified < date('now', 'localtime', '-4 days');" | /usr/bin/sqlite3 $HOME/.local/share/newsbeuter/cache.db
+cat $HOME/Documents/Dico.im/GitHub-projects/qs-news/garbage-collect.sql | sqlite3 $HOME/.local/share/newsbeuter/cache.db
