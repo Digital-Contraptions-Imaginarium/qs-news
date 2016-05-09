@@ -17,6 +17,10 @@ You can then archive the activity to log files, e.g. the following crontab line 
 
     5 * * * * cat $HOME/extract.sql | sqlite3 $HOME/.local/share/newsbeuter/cache.db > $HOME/newsbeuter-history-`date +%Y%m%d -d "1 hour ago"`.csv
 
+Remember to do some kind of garbage collection, too, e.g., to keep today's records and the previous four days:
+
+   30 2 * * * echo "delete from rss_read where item_last_modified < date('now', 'localtime', '-4 days');" | sqlite3 $HOME/.local/share/newsbeuter/cache.db    
+
 To "install" the features, Newsbeuter's database need being changed by using the _database-setup.sql_ script. On Fedora, for example, this is done by running:
 
     cp ~/.local/share/newsbeuter/cache.db ./cache.db.ORIGINAL
